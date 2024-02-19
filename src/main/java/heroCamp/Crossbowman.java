@@ -1,10 +1,12 @@
+package heroCamp;
+
 public class Crossbowman extends BaseHero{
     public Crossbowman(String name, int strength, int health){
         super(name, strength, health);
     }
 
     public Crossbowman(){
-        super("Crossbowman", 7, 30);
+        super("heroCamp.Crossbowman", 7, 30);
     }
 
     public void reload(){

@@ -1,10 +1,12 @@
+package heroCamp;
+
 public class Sniper extends BaseHero{
     public Sniper(String name, int strength, int health){
         super(name, strength, health);
     }
 
     public Sniper(){
-        super("Sniper", 5, 30);
+        super("heroCamp.Sniper", 5, 30);
     }
 
     public void aim(){

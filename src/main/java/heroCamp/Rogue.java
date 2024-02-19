@@ -1,10 +1,12 @@
+package heroCamp;
+
 public class Rogue extends BaseHero{
     public Rogue(String name, int strength, int health){
         super(name, strength, health);
     }
 
     public Rogue(){
-        super("Rogue", 6, 30);
+        super("heroCamp.Rogue", 6, 30);
     }
 
     public void pickPocket(){

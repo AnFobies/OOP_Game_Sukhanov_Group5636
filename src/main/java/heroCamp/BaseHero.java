@@ -1,3 +1,5 @@
+package heroCamp;
+
 abstract public class BaseHero {
     protected String name;
     protected int strength;
@@ -109,8 +111,8 @@ abstract public class BaseHero {
     // Атакует
     public void attack(BaseHero target) {
         int damage = this.strength;
-        target.takeDamage(damage);
         System.out.println(this.name + " attacks " + target.getName() + " for " + damage + " damage!");
+        target.takeDamage(damage);
     }
 
     // Атакует заклинанием

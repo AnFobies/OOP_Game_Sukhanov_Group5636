@@ -1,3 +1,5 @@
+package heroCamp;
+
 import java.util.Random;
 
 public class Peasant extends BaseHero{
@@ -6,7 +8,7 @@ public class Peasant extends BaseHero{
     }
 
     public Peasant(){
-        super("Peasant", 2, 30);
+        super("heroCamp.Peasant", 2, 30);
     }
 
     public void plow(){
@@ -31,8 +33,8 @@ public class Peasant extends BaseHero{
         }
         else{
             int damage = this.strength;
-            target.takeDamage(damage);
             System.out.println(this.name + " attacks " + target.getName() + " for " + damage + " damage!");
+            target.takeDamage(damage);
         }
     }
 }

@@ -1,3 +1,5 @@
+import heroCamp.*;
+
 public class OOP_Game {
     public static void main(String[] args) {
 
