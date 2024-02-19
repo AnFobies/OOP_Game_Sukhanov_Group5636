@@ -10,10 +10,10 @@ public class Warlock extends BaseHero{
     }
 
     public void curse(){
-        System.out.println(this.name + " is cursing the enemy.");
+        System.out.println(this.characterName + " is cursing the enemy.");
     }
 
     public void summonDemon(){
-        System.out.println(this.name + " is summoning a demon.");
+        System.out.println(this.characterName + " is summoning a demon.");
     }
 }

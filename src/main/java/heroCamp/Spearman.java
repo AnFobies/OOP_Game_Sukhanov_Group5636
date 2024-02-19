@@ -12,11 +12,11 @@ public class Spearman extends BaseHero {
 
 
     public void pierce(){
-        System.out.println(this.name + " is piercing with their spear.");
+        System.out.println(this.characterName + " is piercing with their spear.");
     }
 
 
     public void hooking() {
-        System.out.println(this.name + " cuts with his spear.");
+        System.out.println(this.characterName + " cuts with his spear.");
     }
 }

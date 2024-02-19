@@ -10,10 +10,10 @@ public class Crossbowman extends BaseHero{
     }
 
     public void reload(){
-        System.out.println(this.name + "is reloading their crossbow.");
+        System.out.println(this.characterName + "is reloading their crossbow.");
     }
 
     public void fire(){
-        System.out.println(this.name + "is firing their crossbow.");
+        System.out.println(this.characterName + "is firing their crossbow.");
     }
 }

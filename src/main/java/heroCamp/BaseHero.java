@@ -1,44 +1,73 @@
 package heroCamp;
 
+/**
+ * Описание объекта персонажа
+ */
+
 abstract public class BaseHero {
-    protected String name;
+
+    protected String characterName;
     protected int strength;
-    protected int dexterity;
+    protected int agility;
     protected int intelligence;
     protected int endurance;
-    protected int health;
+    protected int currentHealth;
     protected int healthMax;
     protected int speed;
 
-    private BaseHero(String name, int strength, int dexterity, int intelligence, int endurance,
-                    int health, int healthMax, int speed) {
-        this.name = name;
+    private int level;
+
+    private int experience;
+
+
+
+    /**
+     * добавить лвл и опыт
+     * @param name - имя персонажа
+     * @param strength - характеристика силы
+     * @param agility - характеристика ловкости
+     * @param intelligence - характеристика интеллекта
+     * @param endurance - характеристика выносливости
+     * @param currentHealth - показатель здоровья
+     * @param healthMax - максимальное значение здоровья
+     * @param speed - скорость персонажа, (расстояние, которое он может пройти за ход?)
+     */
+    private BaseHero(String name, int strength, int agility, int intelligence, int endurance,
+                    int currentHealth, int healthMax, int speed) {
+        this.characterName = name;
         this.strength = strength;
-        this.dexterity = dexterity;
+        this.agility = agility;
         this.intelligence = intelligence;
         this.endurance = endurance;
-        this.health = health;
+        this.currentHealth = currentHealth;
         this.healthMax = healthMax;
         this.speed = speed;
     }
 
+    /**
+     * нужно переделать создание персонажа, ввести зависимость показателей от характеристик
+     * @param name - имя
+     * @param strength - сила
+     * здоровье думаю убрать отсюда  совсем
+     * @param health - здоровье (стартовое?)
+     */
     public BaseHero(String name, int strength, int health) {
-        this.name = name;
+        this.characterName = name;
         this.strength = strength;
-        this.health = health;
+        this.currentHealth = health;
         this.healthMax = health;
     }
 
-    public String getName(){
-        return name;
+    public String getCharacterName(){
+        return characterName;
     }
 
     public int getStrength(){
         return strength;
     }
 
-    public int getDexterity(){
-        return dexterity;
+    public int getAgility(){
+        return agility;
     }
 
     public int getIntelligence(){
@@ -49,27 +78,36 @@ abstract public class BaseHero {
         return endurance;
     }
 
-    public int getHealth(){
-        return health;
+    public int getCurrentHealth(){
+        return currentHealth;
     }
+
     public int getHealthMax(){
         return healthMax;
+    }
+
+    public int getCurrentLevel(){
+        return level;
+    }
+
+    public int getCurrentExperience(){
+        return experience;
     }
 
     public int speed(){
         return speed;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setCharacterName(String characterName){
+        this.characterName = characterName;
     }
 
     public void setStrength(int strength){
         this.strength = strength;
     }
 
-    public void setDexterity(int dexterity){
-        this.dexterity = dexterity;
+    public void setAgility(int agility){
+        this.agility = agility;
     }
 
     public void setIntelligence(int intelligence){
@@ -80,8 +118,8 @@ abstract public class BaseHero {
         this.endurance = endurance;
     }
 
-    public void setHealth(int health){
-        this.health = health;
+    public void setCurrentHealth(int currentHealth){
+        this.currentHealth = currentHealth;
     }
 
     public void setHealthMax(int health){
@@ -92,44 +130,89 @@ abstract public class BaseHero {
         this.speed = speed;
     }
 
-    // Умер
-    private void die() {
-        setHealth(0);
+    public void setLevel(int level){
+        this.level = level;
     }
 
-    // Ранен
+    public void setExperience(int experience){
+        this.experience = experience;
+    }
+
+    // Умер
+    private void die() {
+        setCurrentHealth(0);
+    }
+
+    /**
+     * нанесение урона
+     * @param damage - количество полученного урона
+     */
     public void takeDamage(int damage) {
-        if (this.health > damage) {
-            this.health -= damage;
-            System.out.println(this.name + " take damage -" + damage + "hp" );
+        if (this.currentHealth > damage) {
+            this.currentHealth -= damage;
+            System.out.println(this.characterName + " take damage -" + damage + "hp" );
         } else {
             this.die();
-            System.out.println(this.name + " has been defeated!");
+            System.out.println(this.characterName + " has been defeated!");
         }
     }
 
-    // Атакует
+
+    /**
+     * физическая атака выбранного персонажа
+     * @param target - цель атаки
+     */
     public void attack(BaseHero target) {
         int damage = this.strength;
-        System.out.println(this.name + " attacks " + target.getName() + " for " + damage + " damage!");
+        System.out.println(this.characterName + " attacks " + target.getCharacterName() + " for " + damage + " damage!");
         target.takeDamage(damage);
     }
 
-    // Атакует заклинанием
+    /**
+     * атака выбранного персонажа заклинанием
+     * @param target - цель атаки
+     */
     public void attackSpell(BaseHero target) {
         int damage = this.intelligence;
         target.takeDamage(damage);
-        System.out.println(this.name + " attacks spell" + target.getName() + " for " + damage + " damage!");
+        System.out.println(this.characterName + " attacks spell" + target.getCharacterName() + " for " + damage + " damage!");
     }
 
-    // Лечится
-    public void heal(int hp) {
-        this.health = Math.min(this.health + hp, this.healthMax);
-        System.out.println( this.name + " rests and recovers " + hp + " health points." );
+
+    /**
+     *
+     * @param heal - количество исцеляемого здоровья
+     */
+    public void takeHeal(int heal) {
+        if (this.healthMax - this.currentHealth != 0) {
+            this.currentHealth += heal;
+            System.out.println(this.characterName + " take heal:" + heal + "hp" );
+        } else {
+            System.out.println(this.characterName + " health is already full!");
+        }
+    }
+
+
+    /**
+     * лечение, написать корректное описание процесса
+     * @param target - цель исцеления
+     */
+    public void heal(BaseHero target) {
+        //int heal = this.intelligence;
+        int heal = this.strength;
+        if(this.currentHealth + heal > this.healthMax)
+        {
+            System.out.println( target.getCharacterName() + " heals to his maximum health");
+
+        } else {
+            System.out.println( target.getCharacterName() + " heals for " + heal + " health points." );
+            target.takeHeal(heal);
+        }
+
     }
 
     public String toString() {
         return String.format("-- %s -- %s[%d/%d], Сила: %d --",
-        this.getClass().getName(), this.name, this.health, this.healthMax, this.strength);
+        this.getClass().getName(), this.characterName, this.currentHealth, this.healthMax, this.strength);
     }
 }

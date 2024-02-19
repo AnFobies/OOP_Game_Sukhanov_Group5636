@@ -10,10 +10,10 @@ public class Rogue extends BaseHero{
     }
 
     public void pickPocket(){
-        System.out.println(this.name + " is picking pockets.");
+        System.out.println(this.characterName + " is picking pockets.");
     }
 
     public void stealth(){
-        System.out.println("No one sees " + this.name);
+        System.out.println("No one sees " + this.characterName);
     }
 }

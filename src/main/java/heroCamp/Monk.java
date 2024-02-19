@@ -12,11 +12,11 @@ public class Monk extends BaseHero{
 
 
     public void meditate() {
-        System.out.println(this.name + " is meditating.");
+        System.out.println(this.characterName + " is meditating.");
     }
 
 
     public void heal() {
-        System.out.println(this.name + " is using their healing powers.");
+        System.out.println(this.characterName + " is using their healing powers.");
     }
 }
