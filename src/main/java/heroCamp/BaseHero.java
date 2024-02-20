@@ -15,9 +15,9 @@ abstract public class BaseHero {
     protected int healthMax;
     protected int speed;
 
-    private int level;
+    protected int level;
 
-    private int experience;
+    protected int experience;
 
 
 
@@ -98,43 +98,43 @@ abstract public class BaseHero {
         return speed;
     }
 
-    public void setCharacterName(String characterName){
+    private void setCharacterName(String characterName){
         this.characterName = characterName;
     }
 
-    public void setStrength(int strength){
+    private void setStrength(int strength){
         this.strength = strength;
     }
 
-    public void setAgility(int agility){
+    private void setAgility(int agility){
         this.agility = agility;
     }
 
-    public void setIntelligence(int intelligence){
+    private void setIntelligence(int intelligence){
         this.intelligence = intelligence;
     }
 
-    public void setEndurance(int endurance){
+    private void setEndurance(int endurance){
         this.endurance = endurance;
     }
 
-    public void setCurrentHealth(int currentHealth){
+    private void setCurrentHealth(int currentHealth){
         this.currentHealth = currentHealth;
     }
 
-    public void setHealthMax(int health){
+    private void setHealthMax(int health){
         this.healthMax = health;
     }
 
-    public void speed(int speed){
+    private void setSpeed(int speed){
         this.speed = speed;
     }
 
-    public void setLevel(int level){
+    private void setLevel(int level){
         this.level = level;
     }
 
-    public void setExperience(int experience){
+    private void setExperience(int experience){
         this.experience = experience;
     }
 
