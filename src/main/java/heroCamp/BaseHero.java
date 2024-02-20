@@ -45,10 +45,10 @@ abstract public class BaseHero {
     }
 
     /**
-     * нужно переделать создание персонажа, ввести зависимость показателей от характеристик
+     * Нужно переделать создание персонажа, ввести зависимость показателей от характеристик
      * @param name - имя
      * @param strength - сила
-     * здоровье думаю убрать отсюда  совсем
+     * здоровье думаю убрать отсюда совсем
      * @param health - здоровье (стартовое?)
      */
     public BaseHero(String name, int strength, int health) {
@@ -144,7 +144,7 @@ abstract public class BaseHero {
     }
 
     /**
-     * нанесение урона
+     * Нанесение урона
      * @param damage - количество полученного урона
      */
     public void takeDamage(int damage) {
@@ -159,7 +159,7 @@ abstract public class BaseHero {
 
 
     /**
-     * физическая атака выбранного персонажа
+     * Физическая атака выбранного персонажа
      * @param target - цель атаки
      */
     public void attack(BaseHero target) {
@@ -169,7 +169,7 @@ abstract public class BaseHero {
     }
 
     /**
-     * атака выбранного персонажа заклинанием
+     * Атака выбранного персонажа заклинанием
      * @param target - цель атаки
      */
     public void attackSpell(BaseHero target) {
@@ -184,8 +184,11 @@ abstract public class BaseHero {
      * @param heal - количество исцеляемого здоровья
      */
     public void takeHeal(int heal) {
-        if (this.healthMax - this.currentHealth != 0) {
+        if (this.healthMax > this.currentHealth){
             this.currentHealth += heal;
+            if(this.currentHealth > this.healthMax){
+                this.currentHealth = this.healthMax;
+            }
             System.out.println(this.characterName + " take heal:" + heal + "hp" );
         } else {
             System.out.println(this.characterName + " health is already full!");
@@ -194,21 +197,14 @@ abstract public class BaseHero {
 
 
     /**
-     * лечение, написать корректное описание процесса
+     * Лечение, написать корректное описание процесса
      * @param target - цель исцеления
      */
     public void heal(BaseHero target) {
         //int heal = this.intelligence;
         int heal = this.strength;
-        if(this.currentHealth + heal > this.healthMax)
-        {
-            System.out.println( target.getCharacterName() + " heals to his maximum health");
-
-        } else {
-            System.out.println( target.getCharacterName() + " heals for " + heal + " health points." );
-            target.takeHeal(heal);
-        }
-
+        System.out.println(this.characterName + " heal " + target.getCharacterName() + " for " + heal + " health points!");
+        target.takeHeal(heal);
     }
 
     public String toString() {
