@@ -7,6 +7,10 @@ public class Peasant extends BaseHero{
         super(name, strength, agility, intelligence, endurance, speed);
     }
 
+    /**
+     * базовые статы при вводе только имени
+     * @param name - имя персонажа
+     */
     public Peasant(String name){
         this("heroCamp.Peasant", 10, 10, 10, 10, 10);
     }

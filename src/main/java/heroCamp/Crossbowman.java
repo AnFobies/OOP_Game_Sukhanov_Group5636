@@ -6,6 +6,10 @@ public class Crossbowman extends BaseHero{
         super(name, strength, agility, intelligence, endurance, speed);
     }
 
+    /**
+     * базовые статы при вводе только имени
+     * @param name - имя персонажа
+     */
     public Crossbowman(String name){
         this("heroCamp.Peasant", 10, 10, 10, 10, 10);
     }
