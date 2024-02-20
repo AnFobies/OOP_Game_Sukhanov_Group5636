@@ -28,34 +28,28 @@ abstract public class BaseHero {
      * @param agility - характеристика ловкости
      * @param intelligence - характеристика интеллекта
      * @param endurance - характеристика выносливости
-     * @param currentHealth - показатель здоровья
-     * @param healthMax - максимальное значение здоровья
+     * currentHealth - показатель здоровья
+     * healthMax - максимальное значение здоровья
      * @param speed - скорость персонажа, (расстояние, которое он может пройти за ход?)
      */
-    private BaseHero(String name, int strength, int agility, int intelligence, int endurance,
-                    int currentHealth, int healthMax, int speed) {
-        this.characterName = name;
-        this.strength = strength;
-        this.agility = agility;
-        this.intelligence = intelligence;
-        this.endurance = endurance;
-        this.currentHealth = currentHealth;
-        this.healthMax = healthMax;
-        this.speed = speed;
+    public BaseHero(String name, int strength, int agility, int intelligence, int endurance, int speed) {
+            this.characterName = name;
+            this.strength = strength;
+            this.agility = agility;
+            this.intelligence = intelligence;
+            this.endurance = endurance;
+            this.healthMax = endurance * 10;
+            this.currentHealth = healthMax;
+            this.speed = speed;
     }
 
     /**
      * Нужно переделать создание персонажа, ввести зависимость показателей от характеристик
      * @param name - имя
-     * @param strength - сила
      * здоровье думаю убрать отсюда совсем
-     * @param health - здоровье (стартовое?)
      */
-    public BaseHero(String name, int strength, int health) {
-        this.characterName = name;
-        this.strength = strength;
-        this.currentHealth = health;
-        this.healthMax = health;
+    public BaseHero(String name) {
+        this(name, 10, 10, 10, 10, 10);
     }
 
     public String getCharacterName(){

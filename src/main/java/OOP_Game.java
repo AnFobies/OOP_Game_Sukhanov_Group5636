@@ -4,19 +4,19 @@ public class OOP_Game {
     public static void main(String[] args) {
 
         // Крестьянин
-        Peasant peasant = new Peasant("Olaf", 2, 20);
+        Peasant peasant = new Peasant("Olaf", 5, 7, 7, 9, 4);
         // Разбойник
-        Rogue rogue = new Rogue("Laskow", 8, 40);
+        Rogue rogue = new Rogue("Laskow");
         // Снайпер
-        Sniper sniper = new Sniper("Durnan", 4, 30);
+        Sniper sniper = new Sniper("Durnan");
         // Колдун
-        Warlock warlock = new Warlock("Tristan", 6, 80);
+        Warlock warlock = new Warlock("Tristan");
         // Копейщик
-        Spearman spearman = new Spearman("Vlad", 7, 30);
+        Spearman spearman = new Spearman("Vlad");
         // Арбалетчик
-        Crossbowman crossbowman = new Crossbowman("Yuldra", 2, 40);
+        Crossbowman crossbowman = new Crossbowman("Yuldra");
         // Монах
-        Monk monk = new Monk("Mara", 5, 70);
+        Monk monk = new Monk("Mara");
 
         //Используется каждый созданный персонаж
        System.out.println(  );

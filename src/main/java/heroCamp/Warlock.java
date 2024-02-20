@@ -1,12 +1,13 @@
 package heroCamp;
 
 public class Warlock extends BaseHero{
-    public Warlock(String name, int strength, int health){
-        super(name, strength, health);
+
+    public Warlock(String name, int strength, int agility, int intelligence, int endurance, int speed){
+        super(name, strength, agility, intelligence, endurance, speed);
     }
 
-    public Warlock(){
-        super("heroCamp.Warlock", 4, 30);
+    public Warlock(String name){
+        this("heroCamp.Peasant", 10, 10, 10, 10, 10);
     }
 
     public void curse(){
