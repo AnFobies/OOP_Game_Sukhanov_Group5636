@@ -12,15 +12,15 @@ public class Peasant extends BaseHero{
     }
 
     public void plow(){
-        System.out.println(this.name + " is plowing the field.");
+        System.out.println(this.characterName + " is plowing the field.");
     }
 
     public void harvest(){
-        System.out.println(this.name + " is harvesting the crops.");
+        System.out.println(this.characterName + " is harvesting the crops.");
     }
 
     public void instantKill(){
-        System.out.println(this.name + " can't kill. It's a peasant");
+        System.out.println(this.characterName + " can't kill. It's a peasant");
     }
 
     @Override
@@ -28,12 +28,12 @@ public class Peasant extends BaseHero{
         Random random = new Random();
         int chance = random.nextInt(1,  101);
         if (chance == 100){
-            target.health = 0;
-            System.out.println(this.name + " instantly kills " + target.getName());
+            target.currentHealth = 0;
+            System.out.println(this.characterName + " instantly kills " + target.getCharacterName());
         }
         else{
             int damage = this.strength;
-            System.out.println(this.name + " attacks " + target.getName() + " for " + damage + " damage!");
+            System.out.println(this.characterName + " attacks " + target.getCharacterName() + " for " + damage + " damage!");
             target.takeDamage(damage);
         }
     }

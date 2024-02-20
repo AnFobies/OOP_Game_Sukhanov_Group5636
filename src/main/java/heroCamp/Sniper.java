@@ -10,11 +10,11 @@ public class Sniper extends BaseHero{
     }
 
     public void aim(){
-        System.out.println(this.name + " is aiming the sniper rifle.");
+        System.out.println(this.characterName + " is aiming the sniper rifle.");
     }
 
     
     public void shoot(){
-        System.out.println(this.name + " is shooting the sniper rifle.");
+        System.out.println(this.characterName + " is shooting the sniper rifle.");
     }
 }

@@ -19,20 +19,22 @@ public class OOP_Game {
         Monk monk = new Monk("Mara", 5, 70);
 
         //Используется каждый созданный персонаж
-        System.out.println(  );
+       System.out.println(  );
         peasant.attack(rogue);
         rogue.attack(spearman);
         rogue.attack(spearman);
         rogue.attack(spearman);
         rogue.attack(spearman);
         sniper.aim();
-        warlock.heal(50);
+        warlock.heal(warlock);
         warlock.attackSpell(peasant);
         crossbowman.attack(monk);
         crossbowman.reload();
         spearman.pierce();
-        monk.heal(30);
+        monk.heal(rogue);
         monk.heal();
+
+
 
         System.out.println( "\n" + peasant );
         System.out.println( rogue );
