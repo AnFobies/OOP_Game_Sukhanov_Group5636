@@ -32,7 +32,7 @@ abstract public class BaseHero {
      * healthMax - максимальное значение здоровья
      * @param speed - скорость персонажа, (расстояние, которое он может пройти за ход?)
      */
-    public BaseHero(String name, int strength, int agility, int intelligence, int endurance, int speed) {
+    private BaseHero(String name, int strength, int agility, int intelligence, int endurance, int speed) {
             this.characterName = name;
             this.strength = strength;
             this.agility = agility;
@@ -48,7 +48,7 @@ abstract public class BaseHero {
      * @param name - имя
      * базовые параметры при создании персонажа с вводом только имени
      */
-    public BaseHero(String name) {
+    private BaseHero(String name) {
         this(name, 10, 10, 10, 10, 10);
     }
 
@@ -92,7 +92,7 @@ abstract public class BaseHero {
         return speed;
     }
 
-    private void setCharacterName(String characterName){
+    public void setCharacterName(String characterName){
         this.characterName = characterName;
     }
 
