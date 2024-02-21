@@ -6,12 +6,12 @@ public class Spearman extends BaseHero {
      * базовые статы при вводе только имени
      * @param name - имя персонажа
      */
-    public Spearman(String name, int strength, int agility, int intelligence, int endurance, int speed){
-        super(name, strength, agility, intelligence, endurance, speed);
+    public Spearman(String name, int x, int y, int strength, int agility, int intelligence, int endurance, int speed){
+        super(name, x, y, strength, agility, intelligence, endurance, speed);
     }
 
-    public Spearman(String name){
-        this("heroCamp.Peasant", 10, 10, 10, 10, 10);
+    public Spearman(String name, int x, int y){
+        this("heroCamp.Peasant", x, y,  10, 10, 10, 10, 10);
     }
 
 

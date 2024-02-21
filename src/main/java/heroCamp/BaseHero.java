@@ -4,7 +4,9 @@ package heroCamp;
  * Описание объекта персонажа
  */
 
-abstract public class BaseHero {
+abstract public class BaseHero implements BaseHeroInterface {
+
+    Place position;
 
     protected String characterName;
     protected int strength;
@@ -32,8 +34,10 @@ abstract public class BaseHero {
      * healthMax - максимальное значение здоровья
      * @param speed - скорость персонажа, (расстояние, которое он может пройти за ход?)
      */
-    private BaseHero(String name, int strength, int agility, int intelligence, int endurance, int speed) {
+
+    protected BaseHero(String name, int x, int y, int strength, int agility, int intelligence, int endurance, int speed) {
             this.characterName = name;
+            position = new Place(x, y);
             this.strength = strength;
             this.agility = agility;
             this.intelligence = intelligence;
@@ -48,8 +52,9 @@ abstract public class BaseHero {
      * @param name - имя
      * базовые параметры при создании персонажа с вводом только имени
      */
-    private BaseHero(String name) {
-        this(name, 10, 10, 10, 10, 10);
+    private BaseHero(String name, int x, int y)
+    {
+        this(name, x, y, 10, 10, 10, 10, 10);
     }
 
     public String getCharacterName(){

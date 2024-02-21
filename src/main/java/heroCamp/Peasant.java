@@ -3,16 +3,16 @@ package heroCamp;
 import java.util.Random;
 
 public class Peasant extends BaseHero{
-    public Peasant(String name, int strength, int agility, int intelligence, int endurance, int speed){
-        super(name, strength, agility, intelligence, endurance, speed);
+    public Peasant(String name, int x, int y, int strength, int agility, int intelligence, int endurance, int speed){
+        super(name, x, y, strength, agility, intelligence, endurance, speed);
     }
 
     /**
      * базовые статы при вводе только имени
      * @param name - имя персонажа
      */
-    public Peasant(String name){
-        this("heroCamp.Peasant", 10, 10, 10, 10, 10);
+    public Peasant(String name, int x, int y){
+        this("heroCamp.Peasant", x, y, 10, 10, 10, 10, 10);
     }
 
 
