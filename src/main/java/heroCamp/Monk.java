@@ -1,13 +1,17 @@
 package heroCamp;
 
 public class Monk extends BaseHero{
-    public Monk(String name, int strength, int health) {
-        super(name, strength, health);
+
+    /**
+     * базовые статы при вводе только имени
+     * @param name - имя персонажа
+     */
+    public Monk(String name, int strength, int agility, int intelligence, int endurance, int speed){
+        super(name, strength, agility, intelligence, endurance, speed);
     }
 
-
-    public Monk() {
-        super("heroCamp.Monk", 6, 30);
+    public Monk(String name){
+        this("heroCamp.Peasant", 10, 10, 10, 10, 10);
     }
 
 
