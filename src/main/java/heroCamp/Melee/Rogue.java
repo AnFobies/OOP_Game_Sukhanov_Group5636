@@ -1,6 +1,8 @@
-package heroCamp;
+package heroCamp.Melee;
 
-public class Rogue extends BaseHero{
+import heroCamp.BaseHero;
+
+public class Rogue extends BaseHero {
 
     /**
      * базовые статы при вводе только имени
@@ -11,7 +13,7 @@ public class Rogue extends BaseHero{
     }
 
     public Rogue(String name, int x, int y){
-        this("heroCamp.Peasant", x, y, 10, 10, 10, 10, 10);
+        this("heroCamp.Melee.Peasant", x, y, 10, 10, 10, 10, 10);
     }
     public void pickPocket(){
         System.out.println(this.characterName + " is picking pockets.");

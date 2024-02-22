@@ -1,6 +1,8 @@
-package heroCamp;
+package heroCamp.Mage;
 
-public class Monk extends BaseHero{
+import heroCamp.BaseHero;
+
+public class Monk extends BaseHero {
 
     /**
      * базовые статы при вводе только имени
@@ -11,7 +13,7 @@ public class Monk extends BaseHero{
     }
 
     public Monk(String name, int x, int y){
-        this("heroCamp.Peasant", x, y, 10, 10, 10, 10, 10);
+        this("heroCamp.Melee.Peasant", x, y, 10, 10, 10, 10, 10);
     }
 
 

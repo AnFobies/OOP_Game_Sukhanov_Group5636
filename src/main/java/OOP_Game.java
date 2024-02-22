@@ -1,4 +1,11 @@
 import heroCamp.*;
+import heroCamp.Mage.Monk;
+import heroCamp.Mage.Warlock;
+import heroCamp.Melee.Peasant;
+import heroCamp.Melee.Rogue;
+import heroCamp.Melee.Spearman;
+import heroCamp.Range.Crossbowman;
+import heroCamp.Range.Sniper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +18,14 @@ public class OOP_Game {
 
         List<BaseHero> team_one = generateHeroesTeamOne(10);
         List<BaseHero> team_two = generateHeroesTeamTwo(10);
-        System.out.println("\nКоманда один:");
-        team_one.forEach(u -> System.out.println(u.getInfo()));
 
-        System.out.println("\nКоманда два:");
-        team_two.forEach(u -> System.out.println(u.getInfo()));
+        for (BaseHero unit : team_one) {
+            System.out.printf("Имя: %s, Класс: %s, Координаты: %d,%d\n", unit.getName(), unit.getClass().getSimpleName(), unit.position.getX(), unit.position.getY());
+        }
+        System.out.println();
+        for (BaseHero unit : team_two) {
+            System.out.printf("Имя: %s, Класс: %s, Координаты: %d,%d\n", unit.getName(), unit.getClass().getSimpleName(), unit.position.getX(), unit.position.getY());
+        }
         System.out.println();
     }
 
@@ -24,25 +34,25 @@ public class OOP_Game {
         for (int i = 0; i < count; i++) {
             switch (new Random().nextInt(7)) {
                 case 0:
-                    list.add(new Peasant("Olaf", i, 0));
+                    list.add(new Peasant(getName(), i, 0));
                     break;
                 case 1:
-                    list.add(new Rogue("Laskow", i, 0));
+                    list.add(new Rogue(getName(), i, 0));
                     break;
                 case 2:
-                    list.add(new Sniper("Durnan", i, 0));
+                    list.add(new Sniper(getName(), i, 0));
                     break;
                 case 3:
-                    list.add(new Warlock("Tristan", i, 0));
+                    list.add(new Warlock(getName(), i, 0));
                     break;
                 case 4:
-                    list.add(new Spearman("Vlad", i, 0));
+                    list.add(new Spearman(getName(), i, 0));
                     break;
                 case 5:
-                    list.add(new Crossbowman("Yuldra", i, 0));
+                    list.add(new Crossbowman(getName(), i, 0));
                     break;
                 case 6:
-                    list.add(new Monk("Mara", i, 0));
+                    list.add(new Monk(getName(), i, 0));
                     break;
             }
         }
@@ -54,25 +64,25 @@ public class OOP_Game {
         for (int i = 0; i < count; i++) {
             switch (new Random().nextInt(7)) {
                 case 0:
-                    list.add(new Peasant("Olaf", i, 9));
+                    list.add(new Peasant(getName(), i, 9));
                     break;
                 case 1:
-                    list.add(new Rogue("Laskow", i, 9));
+                    list.add(new Rogue(getName(), i, 9));
                     break;
                 case 2:
-                    list.add(new Sniper("Durnan", i, 9));
+                    list.add(new Sniper(getName(), i, 9));
                     break;
                 case 3:
-                    list.add(new Warlock("Tristan", i, 9));
+                    list.add(new Warlock(getName(), i, 9));
                     break;
                 case 4:
-                    list.add(new Spearman("Vlad", i, 9));
+                    list.add(new Spearman(getName(), i, 9));
                     break;
                 case 5:
-                    list.add(new Crossbowman("Yuldra", i, 9));
+                    list.add(new Crossbowman(getName(), i, 9));
                     break;
                 case 6:
-                    list.add(new Monk("Mara", i, 9));
+                    list.add(new Monk(getName(), i, 9));
                     break;
             }
         }
@@ -80,6 +90,6 @@ public class OOP_Game {
     }
 
     private static String getName() {
-        return Names.values()[new Random().nextInt(Names.values().length)].toString();
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
     }
 }

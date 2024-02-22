@@ -1,8 +1,10 @@
-package heroCamp;
+package heroCamp.Melee;
+
+import heroCamp.BaseHero;
 
 import java.util.Random;
 
-public class Peasant extends BaseHero{
+public class Peasant extends BaseHero {
     public Peasant(String name, int x, int y, int strength, int agility, int intelligence, int endurance, int speed){
         super(name, x, y, strength, agility, intelligence, endurance, speed);
     }
@@ -12,7 +14,7 @@ public class Peasant extends BaseHero{
      * @param name - имя персонажа
      */
     public Peasant(String name, int x, int y){
-        this("heroCamp.Peasant", x, y, 10, 10, 10, 10, 10);
+        this("heroCamp.Melee.Peasant", x, y, 10, 10, 10, 10, 10);
     }
 
 

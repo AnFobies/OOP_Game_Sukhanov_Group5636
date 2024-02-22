@@ -1,4 +1,6 @@
-package heroCamp;
+package heroCamp.Melee;
+
+import heroCamp.BaseHero;
 
 public class Spearman extends BaseHero {
 
@@ -11,7 +13,7 @@ public class Spearman extends BaseHero {
     }
 
     public Spearman(String name, int x, int y){
-        this("heroCamp.Peasant", x, y,  10, 10, 10, 10, 10);
+        this("heroCamp.Melee.Peasant", x, y,  10, 10, 10, 10, 10);
     }
 
 

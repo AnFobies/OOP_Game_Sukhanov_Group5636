@@ -1,19 +1,26 @@
 package heroCamp;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Random;
+
 /**
  * Описание объекта персонажа
  */
 
 abstract public class BaseHero implements BaseHeroInterface {
 
-    Place position;
+    public Position position;
+
+    protected static Random r;
 
     protected String characterName;
     protected int strength;
     protected int agility;
     protected int intelligence;
     protected int endurance;
-    protected int currentHealth;
+    public int currentHealth;
     protected int healthMax;
     protected int speed;
 
@@ -37,7 +44,7 @@ abstract public class BaseHero implements BaseHeroInterface {
 
     protected BaseHero(String name, int x, int y, int strength, int agility, int intelligence, int endurance, int speed) {
             this.characterName = name;
-            position = new Place(x, y);
+            position = new Position(x, y);
             this.strength = strength;
             this.agility = agility;
             this.intelligence = intelligence;
@@ -52,13 +59,17 @@ abstract public class BaseHero implements BaseHeroInterface {
      * @param name - имя
      * базовые параметры при создании персонажа с вводом только имени
      */
-    private BaseHero(String name, int x, int y)
+    protected BaseHero(String name, int x, int y)
     {
         this(name, x, y, 10, 10, 10, 10, 10);
     }
 
     public String getCharacterName(){
         return characterName;
+    }
+
+    public String getName(){
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
     }
 
     public int getStrength(){
@@ -138,8 +149,23 @@ abstract public class BaseHero implements BaseHeroInterface {
     }
 
     // Умер
-    private void die() {
-        setCurrentHealth(0);
+    protected boolean die() {
+        if (this.getCurrentHealth() <= 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public BaseHero nearestEnemy (List<BaseHero> targets) {
+        Queue<BaseHero> target = new LinkedList<>();
+        double minDistance = 10;
+        for (BaseHero hero : targets) {
+            if (position.getDistanse(hero) < minDistance) {
+                minDistance = position.getDistanse(hero);
+                target.add(hero);
+            }
+        }
+        return target.peek();
     }
 
     /**
