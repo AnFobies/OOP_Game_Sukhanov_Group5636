@@ -22,7 +22,7 @@ abstract public class RangeClass extends BaseHero {
     }
 
     public void attack(BaseHero target){
-        int damage = r.nextInt(5, 10);
+        int damage = random.nextInt(5, 10);
         this.arrows--;
         target.takeDamage(damage);
     }

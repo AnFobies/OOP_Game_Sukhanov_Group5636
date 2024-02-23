@@ -1,11 +1,7 @@
 import heroCamp.*;
-import heroCamp.Mage.Monk;
-import heroCamp.Mage.Warlock;
-import heroCamp.Melee.Peasant;
-import heroCamp.Melee.Rogue;
-import heroCamp.Melee.Spearman;
-import heroCamp.Range.Crossbowman;
-import heroCamp.Range.Sniper;
+import heroCamp.Mage.*;
+import heroCamp.Melee.*;
+import heroCamp.Range.*;
 
 import java.util.ArrayList;
 import java.util.List;

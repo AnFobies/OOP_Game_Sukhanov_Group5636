@@ -13,7 +13,7 @@ public class BaseHero implements BaseHeroInterface {
 
     public Position position;
 
-    protected static Random r;
+    protected static Random random;
 
     protected String characterName;
     protected int strength;
