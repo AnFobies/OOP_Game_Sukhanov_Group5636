@@ -2,7 +2,9 @@ package heroCamp.Melee;
 
 import heroCamp.BaseHero;
 
-public class Spearman extends BaseHero {
+public class Spearman extends Warriors {
+
+    protected int resistance;
 
     /**
      * базовые статы при вводе только имени
@@ -20,5 +22,10 @@ public class Spearman extends BaseHero {
 
     public void hooking() {
         System.out.println(this.characterName + " cuts with his spear.");
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Class: %s Name: %s", this.getClass(), getName());
     }
 }

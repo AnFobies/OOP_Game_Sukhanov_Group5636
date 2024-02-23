@@ -5,7 +5,7 @@ import heroCamp.BaseHero;
 
 import java.util.List;
 
-abstract public class RangeClass extends BaseHero {
+abstract public class RangeClass extends BaseHero implements RangeSkill {
     protected Integer arrows;
 
     public Integer getArrows(){
@@ -22,16 +22,16 @@ abstract public class RangeClass extends BaseHero {
     }
 
     public void attack(BaseHero target){
-        int damage = random.nextInt(5, 10);
+        int damage = random.nextInt(5, 15);
         this.arrows--;
         target.takeDamage(damage);
     }
 
-    public void step(List<BaseHero> list) {
+    public void step(List<BaseHero> list, List<BaseHero> friends) {
         if (!this.isDead()) {
             if (this.getArrows() >= 1) {
                 this.attack(this.nearestEnemy(list));
-                System.out.printf("Точно в цель! (Имя: %s, Класс: %s, Здоровье: %d)\n", this.getName(), this.getClass().getSimpleName(), this.getCurrentHealth());
+                System.out.printf("Попал в цель! (Имя: %s, Класс: %s, Здоровье: %d)\n", this.getName(), this.getClass().getSimpleName(), this.getCurrentHealth());
             }else {
                 System.out.printf("Мне нужно больше стрел... (Имя: %s, Класс: %s, Здоровье: %d)\n", this.getName(), this.getClass().getSimpleName(), this.getCurrentHealth());
             }

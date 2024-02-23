@@ -2,7 +2,7 @@ package heroCamp.Mage;
 
 import heroCamp.BaseHero;
 
-public class Warlock extends BaseHero {
+public class Warlock extends Mages implements MageAttack {
 
     /**
      * Базовые статы при вводе только имени
@@ -10,6 +10,11 @@ public class Warlock extends BaseHero {
      */
     public Warlock(String name, Integer x, Integer y){
         super(name, x, y);
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Class: %s Name: %s", this.getClass(), getName());
     }
 
     public void curse(){

@@ -27,6 +27,14 @@ public class Position {
         return y;
     }
 
+    public void setX(Integer x){
+        this.x = x;
+    }
+
+    public void setY(Integer y){
+        this.y = y;
+    }
+
     /**
      * Param Position - координаты персонажа
      *

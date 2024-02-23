@@ -2,6 +2,7 @@ package heroCamp;
 
 import heroCamp.BaseHero;
 
+import java.util.List;
 import java.util.Random;
 
 public class Peasant extends BaseHero {
@@ -40,5 +41,10 @@ public class Peasant extends BaseHero {
             System.out.println(this.characterName + " attacks " + target.getCharacterName() + " for " + damage + " damage!");
             target.takeDamage(damage);
         }
+    }
+
+    @Override
+    public void step(List<BaseHero> list, List<BaseHero> friends) {
+
     }
 }

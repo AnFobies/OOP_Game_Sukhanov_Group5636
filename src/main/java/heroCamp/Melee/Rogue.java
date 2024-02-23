@@ -2,7 +2,9 @@ package heroCamp.Melee;
 
 import heroCamp.BaseHero;
 
-public class Rogue extends BaseHero {
+public class Rogue extends Warriors {
+
+    protected int fortune;
 
     /**
      * базовые статы при вводе только имени
@@ -18,5 +20,10 @@ public class Rogue extends BaseHero {
 
     public void stealth(){
         System.out.println("No one sees " + this.characterName);
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Class: %s Name: %s", this.getClass(), getName());
     }
 }
