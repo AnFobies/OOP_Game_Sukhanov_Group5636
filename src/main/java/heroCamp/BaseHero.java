@@ -9,7 +9,7 @@ import java.util.Random;
  * Описание объекта персонажа
  */
 
-abstract public class BaseHero implements BaseHeroInterface {
+public class BaseHero implements BaseHeroInterface {
 
     public Position position;
 
@@ -236,4 +236,5 @@ abstract public class BaseHero implements BaseHeroInterface {
         return String.format("-- %s -- %s[%d/%d], Сила: %d --",
         this.getClass().getName(), this.characterName, this.currentHealth, this.healthMax, this.strength);
     }
+
 }

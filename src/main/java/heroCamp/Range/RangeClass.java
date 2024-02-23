@@ -29,7 +29,7 @@ abstract public class RangeClass extends BaseHero {
 
     public void step(List<BaseHero> list) {
         if (!this.die()) {
-            if (this.getArrows() > 1) {
+            if (this.getArrows() >= 1) {
                 this.attack(this.nearestEnemy(list));
                 System.out.printf("Точно в цель! (Имя: %s, Класс: %s, Здоровье: %d)\n", this.getName(), this.getClass().getSimpleName(), this.getCurrentHealth());
             }else {
