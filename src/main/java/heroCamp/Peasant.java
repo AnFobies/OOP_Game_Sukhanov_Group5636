@@ -1,12 +1,16 @@
-package heroCamp.Melee;
+package heroCamp;
 
 import heroCamp.BaseHero;
 
 import java.util.Random;
 
 public class Peasant extends BaseHero {
+
+    int unity;
+
     public Peasant(String name, Integer x, Integer y){
         super(name, x, y);
+        this.speed = 0;
     }
 
 

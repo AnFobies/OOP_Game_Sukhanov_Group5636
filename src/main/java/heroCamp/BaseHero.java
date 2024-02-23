@@ -1,15 +1,13 @@
 package heroCamp;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Random;
 
 /**
  * Описание объекта персонажа
  */
 
-public class BaseHero implements BaseHeroInterface {
+public abstract class BaseHero implements Step{
 
     public Position position;
 
@@ -27,6 +25,12 @@ public class BaseHero implements BaseHeroInterface {
     protected int level;
 
     protected int experience;
+
+    protected Boolean status;
+
+    public List<BaseHero> units;
+
+    static {BaseHero.random = new Random();}
 
 
 
@@ -69,7 +73,11 @@ public class BaseHero implements BaseHeroInterface {
     }
 
     public String getName(){
-        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
+        return this.characterName;
+    }
+
+    public int getSpeed(){
+        return speed;
     }
 
     public int getStrength(){
@@ -149,23 +157,36 @@ public class BaseHero implements BaseHeroInterface {
     }
 
     // Умер
-    protected boolean die() {
+    protected boolean isDead() {
         if (this.getCurrentHealth() <= 0) {
             return false;
         }
         return true;
     }
 
+    public Boolean getStatus(){
+        return status;
+    }
+
+    public void print(){
+        System.out.println("Уровень: " + level + " Имя: " + characterName);
+    }
+
+    public String getInfo(){
+        String resStr = new String(this.getName() + this.getCurrentHealth() + this.position.getPosition() + this.getStatus());
+        return resStr;
+    }
+
     public BaseHero nearestEnemy (List<BaseHero> targets) {
-        Queue<BaseHero> target = new LinkedList<>();
+        BaseHero target = null;
         double minDistance = 10;
         for (BaseHero hero : targets) {
-            if (position.getDistanse(hero) < minDistance) {
+            if (position.getDistanse(hero) <= minDistance && !hero.isDead()) {
                 minDistance = position.getDistanse(hero);
-                target.add(hero);
+                target = hero;
             }
         }
-        return target.peek();
+        return target;
     }
 
     /**
@@ -177,7 +198,7 @@ public class BaseHero implements BaseHeroInterface {
             this.currentHealth -= damage;
             System.out.println(this.characterName + " take damage -" + damage + "hp" );
         } else {
-            this.die();
+            this.isDead();
             System.out.println(this.characterName + " has been defeated!");
         }
     }
