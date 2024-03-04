@@ -1,5 +1,9 @@
-package heroCamp;
+package Game.heroCamp;
 
+import Game.gameInterface.Position;
+import Game.gameInterface.Step;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -7,7 +11,7 @@ import java.util.Random;
  * Описание объекта персонажа
  */
 
-public abstract class BaseHero implements Step{
+public abstract class BaseHero implements Step, Model {
 
     public Position position;
 
@@ -28,10 +32,9 @@ public abstract class BaseHero implements Step{
 
     protected Boolean status;
 
-    public List<BaseHero> units;
+    public ArrayList<BaseHero> units;
 
     static {BaseHero.random = new Random();}
-
 
 
     /**
@@ -66,6 +69,9 @@ public abstract class BaseHero implements Step{
     protected BaseHero(String name, int x, int y)
     {
         this(name, x, y, 10, 10, 10, 10, 10);
+    }
+
+    protected BaseHero() {
     }
 
     public String getCharacterName(){
@@ -136,7 +142,7 @@ public abstract class BaseHero implements Step{
         this.endurance = endurance;
     }
 
-    private void setCurrentHealth(int currentHealth){
+    public void setCurrentHealth(int currentHealth){
         this.currentHealth = currentHealth;
     }
 
@@ -156,106 +162,52 @@ public abstract class BaseHero implements Step{
         this.experience = experience;
     }
 
-    // Умер
-    protected boolean isDead() {
-        if (this.getCurrentHealth() <= 0) {
-            return false;
-        }
-        return true;
+    public String toString() {
+        return String.format("-- %s -- %s[%d/%d], Сила: %d --",
+                this.getClass().getName(), this.characterName, this.currentHealth, this.healthMax, this.strength);
     }
 
     public Boolean getStatus(){
         return status;
     }
 
-    public void print(){
-        System.out.println("Уровень: " + level + " Имя: " + characterName);
+
+    public void GetDamage(int damage) {
+        currentHealth -= damage;
+        if (currentHealth < 0) {
+            currentHealth = 0;
+            death();
+        }
+        if (currentHealth >= getHealthMax()) currentHealth = healthMax;
     }
 
-    public String getInfo(){
-        String resStr = new String(this.getName() + this.getCurrentHealth() + this.position.getPosition() + this.getStatus());
-        return resStr;
+    public void death(){
+        if (getCurrentHealth() < 1) {
+            System.out.println("Ваш персонаж мертв");
+        }
     }
 
-    public BaseHero nearestEnemy (List<BaseHero> targets) {
+    public String getInfo() {return "";}
+
+    public BaseHero nearestEnemy (ArrayList<BaseHero> targets) {
         BaseHero target = null;
-        double minDistance = 10;
+        double minDistance = Double.MAX_VALUE;
         for (BaseHero hero : targets) {
-            if (position.getDistanse(hero) <= minDistance && !hero.isDead()) {
-                minDistance = position.getDistanse(hero);
+            if (position.getDistanse(hero.position) < minDistance && !hero.isDead()) {
+                minDistance = position.getDistanse(hero.position);
                 target = hero;
             }
         }
         return target;
     }
 
-    /**
-     * Нанесение урона
-     * @param damage - количество полученного урона
-     */
-    public void takeDamage(int damage) {
-        if (this.currentHealth > damage) {
-            this.currentHealth -= damage;
-            System.out.println(this.characterName + " take damage -" + damage + "hp" );
-        } else {
-            this.isDead();
-            System.out.println(this.characterName + " has been defeated!");
+    public boolean isDead(){
+        if (getCurrentHealth() <= 0) {
+            return true;
         }
+        return false;
     }
 
 
-    /**
-     * Физическая атака выбранного персонажа
-     * @param target - цель атаки
-     */
-    public void attack(BaseHero target) {
-        int damage = this.strength;
-        System.out.println(this.characterName + " attacks " + target.getCharacterName() + " for " + damage + " damage!");
-        target.takeDamage(damage);
-    }
-
-    /**
-     * Атака выбранного персонажа заклинанием
-     * @param target - цель атаки
-     */
-    public void attackSpell(BaseHero target) {
-        int damage = this.intelligence;
-        target.takeDamage(damage);
-        System.out.println(this.characterName + " attacks spell" + target.getCharacterName() + " for " + damage + " damage!");
-    }
-
-
-    /**
-     *
-     * @param heal - количество исцеляемого здоровья
-     */
-    public void takeHeal(int heal) {
-        if (this.healthMax > this.currentHealth){
-            this.currentHealth += heal;
-            if(this.currentHealth > this.healthMax){
-                this.currentHealth = this.healthMax;
-            }
-            System.out.println(this.characterName + " take heal:" + heal + "hp" );
-        } else {
-            System.out.println(this.characterName + " health is already full!");
-        }
-    }
-
-
-    /**
-     * Лечение, написать корректное описание процесса
-     * @param target - цель исцеления
-     */
-    public void heal(BaseHero target) {
-        //int heal = this.intelligence;
-        int heal = this.strength;
-        System.out.println(this.characterName + " heal " + target.getCharacterName() + " for " + heal + " health points!");
-        target.takeHeal(heal);
-    }
-
-    public String toString() {
-        return String.format("-- %s -- %s[%d/%d], Сила: %d --",
-        this.getClass().getName(), this.characterName, this.currentHealth, this.healthMax, this.strength);
-    }
 
 }

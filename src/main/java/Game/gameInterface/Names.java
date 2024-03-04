@@ -1,4 +1,4 @@
-package heroCamp;
+package Game.gameInterface;
 
 public enum Names {
     Oliver, Jack, Harry, Jacob, Charlie, Thomas, Oscar, William, James , George,
