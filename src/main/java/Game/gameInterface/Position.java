@@ -6,11 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Position {
-    protected int x, y;
+    public int x;
+    public int y;
 
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void setPosition(int value1, int value2) {
+        this.x = value1;
+        this.y = value2;
     }
 
     public List<Integer> getPosition (){
@@ -34,13 +40,14 @@ public class Position {
 
 
     public double getDistanse (Position target) {
-        double targetDistanse = Math.sqrt(Math.pow(target.x - x, 2)) + (Math.pow(target.y - y, 2));
-        return targetDistanse;
+        double d = Math.sqrt(Math.pow(x - target.x, 2) + Math.pow(y - target.y, 2));
+
+        return d;
     }
 
-    public Position getDiff (Position targetPos) {
-        Position diff = new Position(x - targetPos.x, y - targetPos.y);
-        return diff;
+    public Position getDiff (Position target) {
+        Position dif = new Position(x - target.x, y - target.y);
+        return dif;
     }
 
     public boolean equals(Position target) {

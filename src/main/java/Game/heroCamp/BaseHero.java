@@ -189,16 +189,35 @@ public abstract class BaseHero implements Step, Model {
 
     public String getInfo() {return "";}
 
-    public BaseHero nearestEnemy (ArrayList<BaseHero> targets) {
-        BaseHero target = null;
+//    public BaseHero nearestEnemy (ArrayList<BaseHero> targets) {
+//        BaseHero target = null;
+//        double minDistance = Double.MAX_VALUE;
+//        for (BaseHero hero : targets) {
+//            if (position.getDistanse(hero.position) < minDistance && !hero.isDead()) {
+//                minDistance = position.getDistanse(hero.position);
+//                target = hero;
+//            }
+//        }
+//        return target;
+//    }
+
+    public BaseHero nearestEnemy(ArrayList<BaseHero> targets) {
+        if (targets.isEmpty()) {
+            return null; // Handle empty list case
+        }
+
+        BaseHero nearest = null;
         double minDistance = Double.MAX_VALUE;
+
         for (BaseHero hero : targets) {
-            if (position.getDistanse(hero.position) < minDistance && !hero.isDead()) {
-                minDistance = position.getDistanse(hero.position);
-                target = hero;
+            double distance = position.getDistanse(hero.position);
+            if (distance < minDistance && hero.currentHealth > 0) {
+                minDistance = distance;
+                nearest = hero;
             }
         }
-        return target;
+
+        return nearest;
     }
 
     public boolean isDead(){

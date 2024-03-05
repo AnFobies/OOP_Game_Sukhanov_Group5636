@@ -73,11 +73,11 @@ public class Presenter {
                 summ2HP += unit.getCurrentHealth();
             }
             System.out.println(summ2HP);
-            if (summ1HP < 0){
+            if (summ1HP == 0){
                 System.out.println("Победила команда darkTeam");
                 break;
             }
-            if (summ2HP < 0){
+            if (summ2HP == 0){
                 System.out.println("Победила команда holyTeam");
                 break;
             }
