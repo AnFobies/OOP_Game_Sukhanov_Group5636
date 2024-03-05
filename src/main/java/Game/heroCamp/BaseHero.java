@@ -187,7 +187,7 @@ public abstract class BaseHero implements Step, Model {
         }
     }
 
-    public String getInfo() {return "";}
+    public String getInfo() {return " ";}
 
 //    public BaseHero nearestEnemy (ArrayList<BaseHero> targets) {
 //        BaseHero target = null;
