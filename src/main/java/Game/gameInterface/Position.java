@@ -1,10 +1,5 @@
 package Game.gameInterface;
 
-import Game.heroCamp.BaseHero;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Position {
     public int x;
     public int y;
@@ -19,23 +14,14 @@ public class Position {
         this.y = value2;
     }
 
-    public List<Integer> getPosition (){
-        List<Integer> list = new ArrayList<>();
-        list.add(x);
-        list.add(y);
-        return list;
-    }
 
     public int getX() {return x;}
 
     public int getY() {return y;}
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setX(int x) {
-        this.x = x;
+    @Override
+    public String toString(){
+        return x + "," + y;
     }
 
 

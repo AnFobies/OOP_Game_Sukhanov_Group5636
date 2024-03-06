@@ -10,7 +10,7 @@ import Game.cc.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class OOP_Game {
+public class Main {
 
     public static ArrayList<BaseHero> holyTeam = new ArrayList<BaseHero>(teamCreator(1));
     public static ArrayList<BaseHero> darkTeam = new ArrayList<BaseHero>(teamCreator(10));

@@ -4,7 +4,6 @@ import Game.gameInterface.Position;
 import Game.gameInterface.Step;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -189,17 +188,6 @@ public abstract class BaseHero implements Step, Model {
 
     public String getInfo() {return " ";}
 
-//    public BaseHero nearestEnemy (ArrayList<BaseHero> targets) {
-//        BaseHero target = null;
-//        double minDistance = Double.MAX_VALUE;
-//        for (BaseHero hero : targets) {
-//            if (position.getDistanse(hero.position) < minDistance && !hero.isDead()) {
-//                minDistance = position.getDistanse(hero.position);
-//                target = hero;
-//            }
-//        }
-//        return target;
-//    }
 
     public BaseHero nearestEnemy(ArrayList<BaseHero> targets) {
         if (targets.isEmpty()) {
