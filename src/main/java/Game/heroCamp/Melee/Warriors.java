@@ -27,9 +27,12 @@ public abstract class Warriors extends BaseHero {
     }
 
     public void step(ArrayList<BaseHero> targets, ArrayList<BaseHero> friend) {
-        if (currentHealth<=0) return;
-        BaseHero target = super.nearestEnemy(targets);
-        if (position.getDistanse(target.position) < 2 && !targets.isEmpty()){
+        BaseHero target = nearestEnemy(targets);
+        if (target == null) {
+            return;
+        }
+        if (currentHealth<=0 && targets.isEmpty()) return;
+        if (position.getDistanse(target.position) < 2){
             attack(target);
             return;
         }
