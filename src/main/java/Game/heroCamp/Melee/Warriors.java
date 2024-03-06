@@ -19,6 +19,9 @@ public abstract class Warriors extends BaseHero {
 
 
     public void attack(BaseHero target){
+        if (target == null) {
+            return;
+        }
         int damage = random.nextInt(5,15);
         target.GetDamage(damage);
     }
@@ -26,7 +29,7 @@ public abstract class Warriors extends BaseHero {
     public void step(ArrayList<BaseHero> targets, ArrayList<BaseHero> friend) {
         if (currentHealth<=0) return;
         BaseHero target = super.nearestEnemy(targets);
-        if (position.getDistanse(target.position) < 2){
+        if (position.getDistanse(target.position) < 2 && !targets.isEmpty()){
             attack(target);
             return;
         }

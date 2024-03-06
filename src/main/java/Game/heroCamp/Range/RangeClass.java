@@ -30,6 +30,9 @@ abstract public class RangeClass extends BaseHero {
 
 
     public void attack(BaseHero target){
+        if (target == null) {
+            return;
+        }
         int damage = random.nextInt(5, 15);
         this.arrows--;
         target.GetDamage(damage);
@@ -39,10 +42,12 @@ abstract public class RangeClass extends BaseHero {
     public String toString() {return characterName +  ", Hp: " + currentHealth + ", St: " + strength + ", Arrows: " + arrows;}
 
     public void step(ArrayList<BaseHero> targets, ArrayList<BaseHero> friends) {
+        if (targets == null) {
+            return;
+        }
 
         if (getCurrentHealth() <= 0 || getArrows() <= 0) return;
         attack(nearestEnemy(targets));
-        //System.out.printf("%s %s %s %s\n", name, getClass().getSimpleName(), "Стреляю в", nearestEnemy(targets).getName());
         if (getArrows() < maxArrows){
 
             for (BaseHero unit : friends) {

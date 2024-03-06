@@ -190,9 +190,9 @@ public abstract class BaseHero implements Step, Model {
 
 
     public BaseHero nearestEnemy(ArrayList<BaseHero> targets) {
-        if (targets.isEmpty()) {
-            return null; // Handle empty list case
-        }
+//        if (targets.isEmpty()) {
+//            return null; // Handle empty list case
+//        }
 
         BaseHero nearest = null;
         double minDistance = Double.MAX_VALUE;
