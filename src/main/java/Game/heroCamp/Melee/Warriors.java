@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public abstract class Warriors extends BaseHero {
 
-    protected Position position;
-
     protected Warriors(String name, int x, int y) {
         super(name, x, y);
         this.speed = 2;

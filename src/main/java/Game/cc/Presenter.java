@@ -73,17 +73,6 @@ public class Presenter {
             for (BaseHero unit : darkTeam){
                 summ2HP += unit.getCurrentHealth();
             }
-            for (BaseHero unit : allTeam) {
-                if(Objects.equals(unit.getInfo(), "Разбойник")) {
-                    System.out.printf("Имя: %s, Класс: %s, Здоровье: %d, Координаты: %d,%d\n", unit.getName(),
-                            unit.getClass().getSimpleName(), unit.getCurrentHealth(), unit.position.getX(), unit.position.getY());
-                }
-            }for (BaseHero unit : allTeam) {
-                if(Objects.equals(unit.getInfo(), "Копейщик")) {
-                    System.out.printf("Имя: %s, Класс: %s, Здоровье: %d, Координаты: %d,%d\n", unit.getName(),
-                            unit.getClass().getSimpleName(), unit.getCurrentHealth(), unit.position.getX(), unit.position.getY());
-                }
-            }
             System.out.println(summ2HP);
             if (summ1HP == 0){
                 System.out.println("Победила команда darkTeam");
