@@ -5,7 +5,7 @@ public class Sniper extends RangeClass {
 
     public Sniper(String name, int x, int y) {
         super(name, x, y);
-        this.maxArrows = arrows = 30;
+        this.maxArrows = arrows = 100;
     }
 
     public Sniper() {

@@ -29,7 +29,7 @@ public class Peasant extends BaseHero {
     }
 
     public String getInfo() {
-        return "Крестьянин";
+        return "Фермер";
     }
 
     @Override

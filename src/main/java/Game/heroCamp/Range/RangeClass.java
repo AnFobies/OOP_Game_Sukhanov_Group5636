@@ -53,7 +53,6 @@ abstract public class RangeClass extends BaseHero {
                 }
             }
         }
-        arrows--;
     }
 
 }

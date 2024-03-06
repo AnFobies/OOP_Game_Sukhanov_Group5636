@@ -15,7 +15,7 @@ abstract public class Mages extends BaseHero {
     protected Mages(String name, int x, int y) {
         super(name, x, y);
         this.speed = 1;
-        maxMana = mana = 5;
+        maxMana = mana = 15;
         flag = false;
     }
 

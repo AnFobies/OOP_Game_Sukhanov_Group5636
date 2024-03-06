@@ -4,7 +4,7 @@ public class Crossbowman extends RangeClass {
 
     public Crossbowman(String name, int x, int y){
         super(name, x, y);
-        this.maxArrows = arrows = 30;
+        this.maxArrows = arrows = 100;
     }
 
     public Crossbowman() {
